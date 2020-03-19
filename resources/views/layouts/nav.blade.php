@@ -94,7 +94,8 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
 
-                <img src="{{ Auth::user()->avatar_path }}" width="50" height="50" class="mt-4 rounded-b-full">
+{{--                <img src="{{ Auth::user()->avatar_path }}" alt="test" width="50" height="50" class="mt-4 rounded-b-full">--}}
+{{--    TODO there is no avatar folder und storage app public--}}
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ route('login') }}">Login</a></li>
