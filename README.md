@@ -1,6 +1,19 @@
 # OfflineForum
 
 This is an open source forum that was build with Laravel at its core. Build together with Laracast.
+100% open source
+Build to last
+Build to save the planet from capitalism
+Slow down the economy / slow is the new growth / Patient
+Create OFFers / Tax free / Global currency
+Message anyone
+Add value to your personal belongings by contributing positive value to the system.
+Projects get rated not people
+Change comes from the inside
+Healthy society is vegan, we are no meat eaters
+A tool to generate a global vision
+
+
 
 Prerequisites:
 --------------------------------------------------------------------
