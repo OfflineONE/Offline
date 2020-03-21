@@ -31,6 +31,8 @@ class Thread extends Model
 
         static::created(function ($thread) {
             $thread->update(['slug' => $thread->title]);
+
+            $thread->owner->increment('reputation', 10);
         });
     }
 

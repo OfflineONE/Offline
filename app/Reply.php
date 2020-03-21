@@ -21,6 +21,8 @@ class Reply extends Model
 
         static::created(function($reply) {
             $reply->thread->increment('replies_count');
+
+            $reply->owner->increment('reputation', 2);
         });
 
         static::deleted(function($reply) {
@@ -68,6 +70,8 @@ class Reply extends Model
     public function setBestReply()
     {
         $this->thread->update(['best_reply_id' => $this->id]);
+
+        $this->owner->increment('reputation', 50);
     }
 
     public function getIsBestAttribute()
