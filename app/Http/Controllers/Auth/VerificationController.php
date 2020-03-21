@@ -63,5 +63,11 @@ class VerificationController extends Controller
         return redirect($this->redirectPath())->with('verified', true)->with('flash', 'Your E-Mail has been verified.');
     }
 
+    public function show(Request $request)
+    {
+        return $request->user()->hasVerifiedEmail()
+            ? redirect($this->redirectPath())
+            : redirect('/')->with('flash', 'Please verify your e-mail address');
+    }
 
 }
