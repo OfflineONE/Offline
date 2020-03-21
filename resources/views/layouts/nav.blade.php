@@ -16,9 +16,6 @@
                 <a class="navbar-nav mr-auto" href="{{ url('/') }}">
                     <svg height="40px" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"
                     >
-                        <style>.st0 {
-                                fill: #231f20
-                            }</style>
                         <g id="Layer_2">
                             <path class="st0" d="M862.9 159.5h30v761.7h-30zM980.5 159.5h30v761.7h-30z"/>
                             <path transform="rotate(-90 1249.168 367.704)" class="st0" d="M1234.2-57.8h30v851h-30z"/>
