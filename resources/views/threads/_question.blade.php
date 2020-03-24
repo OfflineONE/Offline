@@ -53,14 +53,10 @@
 
 
 
-
-
-
-
 {{--Viewing the question--}}
 <div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-grey-light mt-2"
      v-else >
-    <div class="py-3 px-6 mb-0 bg-grey-lighter border-b-1 border-grey-light text-grey-darkest">
+    <div class="py-3 px-6 mb-0 border-b-2">
         <div class="level">
             <img src="{{ asset($thread->owner->avatar_path) }}"
                  alt="{{ $thread->owner->name }}"
@@ -70,10 +66,13 @@
             >
 
             <span class="flex">
-                    <a href="{{ route('profile.show', $thread->owner->name)}}"><span v-text="title"></span>
+                    <a href="{{ route('profile.show', $thread->owner)}}">
+                        {{ $thread->owner->name }}  ({{ $thread->owner->reputation }} XP)
                     </a>
+                        posted:
+                         <span v-text="title">
 
-                    {{ $thread->title }}
+                         </span>
                 </span>
         </div>
     </div>
