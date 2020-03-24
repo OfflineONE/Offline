@@ -32,7 +32,7 @@ class Thread extends Model
         static::created(function ($thread) {
             $thread->update(['slug' => $thread->title]);
 
-            $thread->owner->increment('reputation', 10);
+            Reputation::award($thread->owner, Reputation::THREAD_WAS_PUBLISHED);
         });
     }
 
@@ -60,10 +60,8 @@ class Thread extends Model
         {
             $reply = $this->replies()->create($reply);
 
-
             event(new ThreadReceivedNewReply($reply));
 
-//            $this->notifySubscribers($reply);
 
             return $reply;
         }
@@ -140,6 +138,4 @@ class Thread extends Model
         {
             return \Purify::clean($body);
         }
-
-
 }

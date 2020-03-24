@@ -79,13 +79,15 @@ class ThreadTest extends TestCase
     {
         Notification::fake();
 
+//        dd($this->signIn()->thread->subscribe());
+
         $this
             ->signIn()
             ->thread
             ->subscribe()
             ->addReply([
-            'body' => 'foo',
-            'user_id' => 999
+                'body' => 'foo',
+                'user_id' => create(\App\User::class)->id
         ]);
 
         Notification::assertSentTo(auth()->user(), ThreadWasUpdated::class);
