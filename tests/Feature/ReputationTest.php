@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Reputation;
 use App\Thread;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -20,7 +21,21 @@ class ReputationTest extends TestCase
     {
         $thread = create('App\Thread');
 
-        $this->assertEquals(10, $thread->owner->reputation);
+        $this->assertEquals(Reputation::THREAD_WAS_PUBLISHED, $thread->owner->reputation);
+    }
+
+    /** @test */
+    public function a_user_loses_points_when_they_delete_a_thread()
+    {
+        $this->signIn();
+
+        $thread = create('App\Thread', ['user_id' => auth()->id()]);
+
+        $this->assertEquals(Reputation::THREAD_WAS_PUBLISHED, $thread->owner->reputation);
+
+        $this->delete($thread->path());
+
+        self::assertEquals(0, $thread->owner->fresh()->reputation);
     }
 
     /** @test */
@@ -33,8 +48,23 @@ class ReputationTest extends TestCase
             'body' =>  'Here is a reply',
         ]);
 
-        $this->assertEquals(2, $reply->owner->reputation);
+        $this->assertEquals(Reputation::REPLY_POSTED, $reply->owner->reputation);
     }
+
+    /** @test */
+    public function a_user_loses_points_when_they_delete_a_reply()
+    {
+        $this->signIn();
+
+        $reply = create('App\Reply', ['user_id' => auth()->id()]);
+
+        $this->assertEquals(Reputation::REPLY_POSTED, $reply->owner->reputation);
+
+        $this->delete("/replies/{$reply->id}");
+
+            $this->assertEquals(0, $reply->owner->fresh()->reputation);
+    }
+
     /** @test */
     public function a_user_earns_points_when_their_reply_is_marked_as_best()
     {
@@ -47,6 +77,6 @@ class ReputationTest extends TestCase
 
         $reply->setBestReply($reply);
 
-        $this->assertEquals(52, $reply->owner->reputation);
+        $this->assertEquals(Reputation::REPLY_POSTED + Reputation::BEST_REPLY_AWARDED, $reply->owner->reputation);
     }
 }

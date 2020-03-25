@@ -6,6 +6,7 @@ use App\Http\Requests\CreatePostRequest;
 use App\Notifications\YouWereMentioned;
 use App\Reply;
 use App\Inspections\Spam;
+use App\Reputation;
 use App\Thread;
 use App\User;
 use Exception;
@@ -53,6 +54,8 @@ class RepliesController extends Controller
                 'status' => 'Reply deleted'
             ]);
         }
+
+        Reputation::reduce($reply->owner, Reputation::REPLY_POSTED);
 
         return back();
     }

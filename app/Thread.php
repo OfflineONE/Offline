@@ -27,6 +27,8 @@ class Thread extends Model
 
         static::deleting(function ($thread) {
             $thread->replies->each->delete();
+
+            Reputation::reduce($thread->owner, Reputation::THREAD_WAS_PUBLISHED);
         });
 
         static::created(function ($thread) {
