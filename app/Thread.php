@@ -64,7 +64,6 @@ class Thread extends Model
 
             event(new ThreadReceivedNewReply($reply));
 
-
             return $reply;
         }
 
@@ -77,7 +76,6 @@ class Thread extends Model
         {
             return $filters->apply($query);
         }
-
 
         public function subscribe($userId = null)
         {

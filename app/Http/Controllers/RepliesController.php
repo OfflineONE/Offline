@@ -55,7 +55,6 @@ class RepliesController extends Controller
             ]);
         }
 
-        Reputation::reduce($reply->owner, Reputation::REPLY_POSTED);
 
         return back();
     }

@@ -7,6 +7,7 @@ class Reputation
     const THREAD_WAS_PUBLISHED = 10;
     const REPLY_POSTED = 2;
     const BEST_REPLY_AWARDED = 50;
+    const REPLY_FAVORITED = 3;
 
     public static function award($user, $points)
     {
