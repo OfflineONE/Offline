@@ -56,7 +56,7 @@ Step 5
 mysql -u -root 
 ```
 
-(-u stands for user -root is the standart root user)
+(-u stands for user -root is the standard root user)
 
 once you are inside the mysql
 
@@ -81,3 +81,11 @@ Step 7
 
 
 
+
+--------------------------------------------------------------------
+
+1. Visit: http://offline.test/register and register an account.
+
+1. Edit `config/council.php`, adding the email address of the account you just created.
+
+1. Visit: http://offline.test/admin/channels and add at least one channel. 

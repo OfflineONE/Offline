@@ -65,7 +65,7 @@ class VerificationController extends Controller
 
     public function show(Request $request)
     {
-        return $request->user()->hasVerifiedEmail()
+        return $request->user()->hasVerifiedEmail() || user()->isAdmin()
             ? redirect($this->redirectPath())
             : redirect('/')->with('flash', 'Please verify your e-mail address');
     }

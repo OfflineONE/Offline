@@ -6,6 +6,6 @@ module.exports = {
     },
 
     isAdmin () {
-        return ['reniar'].includes(user.name);
+        return user.isAdmin;
     }
 };
