@@ -17,3 +17,4 @@ council.php
 config/council.php
 dump.rdb
 dump.rdb
+*.rdb
