@@ -2,13 +2,13 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class AddAvatarTest extends TestCase {
-
+class AddAvatarTest extends TestCase
+{
     use DatabaseMigrations;
 
     /** @test */
@@ -25,23 +25,23 @@ class AddAvatarTest extends TestCase {
 //        $this->withoutExceptionHandling();
         $this->signIn();
         $this->json('POST', 'api/users/'.auth()->id().'/avatar', [
-        'avatar' => 'not-an-image'
+            'avatar' => 'not-an-image',
         ])
             ->assertStatus(422);
     }
 
     /** @test */
-    function a_user_may_add_an_avatar_to_their_profile()
+    public function a_user_may_add_an_avatar_to_their_profile()
     {
         $this->signIn();
 
         $this->json('POST', 'api/users/'.auth()->id().'/avatar', [
-            'avatar' => $file = UploadedFile::fake()->image('avatar.jpg')
+            'avatar' => $file = UploadedFile::fake()->image('avatar.jpg'),
         ]);
 
         $this->assertEquals(asset('avatars/'.$file->hashName()), auth()->user()->avatar_path);
 
-        Storage::disk('public')->assertExists('avatars/' . $file->hashName());
+        Storage::disk('public')->assertExists('avatars/'.$file->hashName());
 
         return back();
     }

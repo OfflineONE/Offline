@@ -5,8 +5,8 @@ namespace Tests\Feature;
 use App\Inspections\Spam;
 use Tests\TestCase;
 
-class SpamTest extends TestCase {
-
+class SpamTest extends TestCase
+{
     /** @test */
     public function it_checks_for_invalid_keywords()
     {
@@ -23,7 +23,7 @@ class SpamTest extends TestCase {
     }
 
     /** @test */
-    function it_checks_for_any_key_being_held_down()
+    public function it_checks_for_any_key_being_held_down()
     {
         $spam = new Spam();
 

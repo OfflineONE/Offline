@@ -2,12 +2,11 @@
 
 namespace Tests\Feature;
 
-use Carbon\Carbon;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\TestCase;
 
-class UserTest extends TestCase {
-
+class UserTest extends TestCase
+{
     use DatabaseMigrations;
 
     /** @test */
@@ -21,7 +20,7 @@ class UserTest extends TestCase {
     }
 
     /** @test */
-    function a_user_can_determine_their_avatar_path()
+    public function a_user_can_determine_their_avatar_path()
     {
         $user = create('App\User');
 
@@ -31,6 +30,4 @@ class UserTest extends TestCase {
 
         $this->assertEquals('https://offline.test/avatars/me.jpg', $user->avatar_path);
     }
-
-
 }

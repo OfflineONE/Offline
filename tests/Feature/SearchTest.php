@@ -5,10 +5,9 @@ namespace Tests\Feature;
 use App\Thread;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class SearchTest extends TestCase {
-
+class SearchTest extends TestCase
+{
     use RefreshDatabase;
 
     /** @test */

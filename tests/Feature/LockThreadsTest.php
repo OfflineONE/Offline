@@ -2,14 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\TestCase;
 
-class LockThreads extends TestCase
+class LockThreadsTest extends TestCase
 {
     use DatabaseMigrations;
-
 
     /** @test */
     public function non_administrators_may_not_lock_threads()
@@ -21,14 +19,14 @@ class LockThreads extends TestCase
         $this->post(route('locked-threads.store', $thread))
      ->assertStatus(403);
 
-        $this->assertFalse(!!$thread->fresh()->locked);
+        $this->assertFalse((bool) $thread->fresh()->locked);
     }
 
     /** @test */
     public function an_administrator_can_lock_threads()
     {
         $user = factory('App\User')->create();
-        config(['council.administrators' => [ $user->email ]]);
+        config(['council.administrators' => [$user->email]]);
         $this->signIn($user);
 
         $thread = create('App\Thread', ['user_id' => auth()->id()]);
@@ -42,12 +40,10 @@ class LockThreads extends TestCase
     public function an_administrator_can_unlock_threads()
     {
         $user = factory('App\User')->create();
-        config(['council.administrators' => [ $user->email ]]);
+        config(['council.administrators' => [$user->email]]);
         $this->signIn($user);
 
         $thread = create('App\Thread', ['user_id' => auth()->id(), 'locked' => true]);
-
-
 
         $this->delete(route('locked-threads.destroy', $thread));
 
@@ -59,12 +55,12 @@ class LockThreads extends TestCase
     {
         $this->signIn();
         $thread = create('App\Thread', [
-            'locked' => true
+            'locked' => true,
         ]);
 
-        $this->post($thread->path() . '/replies', [
-        'body'    => 'Foobar',
-        'user_id' => auth()->id()
+        $this->post($thread->path().'/replies', [
+            'body'    => 'Foobar',
+            'user_id' => auth()->id(),
         ])->assertStatus(422);
     }
 }

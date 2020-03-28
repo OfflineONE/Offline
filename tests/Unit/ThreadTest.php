@@ -4,13 +4,9 @@ namespace Tests\Unit;
 
 use App\Notifications\ThreadWasUpdated;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Notification;
-use Illuminate\Support\Facades\Redis;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /**
  * @property  thread
@@ -44,7 +40,7 @@ class ThreadTest extends TestCase
     }
 
     /** @test */
-    function a_thread_has_a_path()
+    public function a_thread_has_a_path()
     {
         $thread = create('App\Thread');
 
@@ -52,30 +48,30 @@ class ThreadTest extends TestCase
     }
 
     /** @test */
-    function a_thread_has_a_creator()
+    public function a_thread_has_a_creator()
     {
         $this->assertInstanceOf('App\User', $this->thread->owner);
     }
 
     /** @test */
-    function a_thread_has_replies()
+    public function a_thread_has_replies()
     {
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->thread->replies);
     }
 
     /** @test */
-    function a_thread_can_add_a_reply()
+    public function a_thread_can_add_a_reply()
     {
         $this->thread->addReply([
             'body' => 'foo',
-            'user_id' => 1
+            'user_id' => 1,
         ]);
 
         $this->assertCount(1, $this->thread->replies);
     }
 
     /** @test */
-    function a_thread_notifies_all_registered_subscribers_when_a_reply_is_added()
+    public function a_thread_notifies_all_registered_subscribers_when_a_reply_is_added()
     {
         Notification::fake();
 
@@ -87,14 +83,14 @@ class ThreadTest extends TestCase
             ->subscribe()
             ->addReply([
                 'body' => 'foo',
-                'user_id' => create(\App\User::class)->id
-        ]);
+                'user_id' => create(\App\User::class)->id,
+            ]);
 
         Notification::assertSentTo(auth()->user(), ThreadWasUpdated::class);
     }
 
     /** @test */
-    function a_thread_belongs_to_a_channel()
+    public function a_thread_belongs_to_a_channel()
     {
         $thread = create('App\Thread');
 
@@ -102,7 +98,7 @@ class ThreadTest extends TestCase
     }
 
     /** @test */
-    function a_thread_can_be_subscribed_to()
+    public function a_thread_can_be_subscribed_to()
     {
         $thread = create('App\Thread');
 
@@ -117,7 +113,7 @@ class ThreadTest extends TestCase
     }
 
     /** @test */
-    function a_thread_can_be_unsubscribed_from()
+    public function a_thread_can_be_unsubscribed_from()
     {
         $thread = create('App\Thread');
 
@@ -129,7 +125,7 @@ class ThreadTest extends TestCase
     }
 
     /** @test */
-    function it_knows_if_the_authenticated_user_is_subscribed_to_it()
+    public function it_knows_if_the_authenticated_user_is_subscribed_to_it()
     {
         $thread = create('App\Thread');
 
@@ -143,15 +139,13 @@ class ThreadTest extends TestCase
     }
 
     /** @test */
-    function a_thread_can_check_if_the_authenticated_user_has_read_all_replies()
+    public function a_thread_can_check_if_the_authenticated_user_has_read_all_replies()
     {
         $this->signIn();
 
         $thread = create('App\Thread');
 
-        tap(auth()->user(), fn($user) =>
-
-        [
+        tap(auth()->user(), fn ($user) => [
             $this->assertTrue($thread->hasUpdatesFor($user)),
 
             $user->read($thread),
@@ -161,10 +155,10 @@ class ThreadTest extends TestCase
 
         );
     }
+
     /** @test */
     public function if_a_best_reply_is_deleted_then_the_thread_is_properly_updated_to_reflect_that()
     {
-
         $this->signIn();
 
         $reply = create('App\Reply', ['user_id' => auth()->id()]);
@@ -174,15 +168,14 @@ class ThreadTest extends TestCase
         $this->deleteJson(route('replies.destroy', $reply));
 
         $this->assertNull($reply->thread->fresh()->best_reply_id);
-
     }
 
     /** @test */
-    function a_thread_body_is_sanitized_automatically()
+    public function a_thread_body_is_sanitized_automatically()
     {
-        $thread = make('App\Thread' , ['body' => '<script>alert("BAD")</script><p>This is okay.</p>']);
+        $thread = make('App\Thread', ['body' => '<script>alert("BAD")</script><p>This is okay.</p>']);
 
-        $this->assertEquals("<p>This is okay.</p>", $thread->body);
+        $this->assertEquals('<p>This is okay.</p>', $thread->body);
     }
 
 //
@@ -201,12 +194,11 @@ class ThreadTest extends TestCase
 //
 //    }
 
-
     /** @test */
-    function a_reply_body_is_sanitized_automatically()
+    public function a_reply_body_is_sanitized_automatically()
     {
-        $reply = make('App\Reply' , ['body' => '<script>alert("BAD")</script><p>This is okay.</p>']);
+        $reply = make('App\Reply', ['body' => '<script>alert("BAD")</script><p>This is okay.</p>']);
 
-        $this->assertEquals("<p>This is okay.</p>", $reply->body);
+        $this->assertEquals('<p>This is okay.</p>', $reply->body);
     }
 }

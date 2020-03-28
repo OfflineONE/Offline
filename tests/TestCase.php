@@ -3,18 +3,18 @@
 namespace Tests;
 
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use Illuminate\Support\Facades\DB;
 
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
-    
+
     protected function setUp(): void
     {
         parent::setUp();
     }
 
-    protected function signIn($user = null) {
+    protected function signIn($user = null)
+    {
         $user = $user ?: create('App\User');
 
         $this->actingAs($user);
@@ -22,10 +22,11 @@ abstract class TestCase extends BaseTestCase
         return $this;
     }
 
-    protected function signInAdmin($admin = null) {
+    protected function signInAdmin($admin = null)
+    {
         $admin = $admin ?: create('App\User');
 
-        config(['council.administrators' => [ $admin->email ]]);
+        config(['council.administrators' => [$admin->email]]);
 
         $this->actingAs($admin);
 

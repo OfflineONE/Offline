@@ -20,9 +20,8 @@ class EventServiceProvider extends ServiceProvider
 
         ThreadReceivedNewReply::class => [
             NotifyMentionedUsers::class,
-            NotifySubscribers::class
+            NotifySubscribers::class,
         ],
-
 
     ];
 

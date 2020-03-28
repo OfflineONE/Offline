@@ -3,11 +3,11 @@
 namespace Tests\Feature;
 
 use App\Trending;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\TestCase;
 
-class TrendingThreadsTest extends TestCase {
-
+class TrendingThreadsTest extends TestCase
+{
     use DatabaseMigrations;
 
     protected function setUp(): void
@@ -17,7 +17,6 @@ class TrendingThreadsTest extends TestCase {
         $this->trending = new Trending();
 
         $this->trending->reset();
-
     }
 
     /** @test */
@@ -30,5 +29,3 @@ class TrendingThreadsTest extends TestCase {
         $this->assertEquals($thread->title, $trending[0]->title);
     }
 }
-
-

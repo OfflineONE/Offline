@@ -2,10 +2,9 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use java;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -26,9 +25,8 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $appends = [
-      'isAdmin'
+        'isAdmin',
     ];
-
 
     /**
      * The attributes that should be hidden for arrays.
@@ -36,7 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'email'
+        'password', 'remember_token', 'email',
     ];
 
     /**
@@ -55,7 +53,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function threads()
     {
-       return $this->hasMany(Thread::class)->latest();
+        return $this->hasMany(Thread::class)->latest();
     }
 
     public function activity()
@@ -65,7 +63,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function visitedThreadCacheKey($thread)
     {
-        return sprintf("users.%s.visits.%s", $this->id, $thread->id);
+        return sprintf('users.%s.visits.%s', $this->id, $thread->id);
     }
 
     public function read($thread)
@@ -88,7 +86,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isAdmin()
     {
-         return in_array($this->email, config('council.administrators'));
+        return in_array($this->email, config('council.administrators'));
     }
 
     /**
@@ -100,7 +98,4 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->isAdmin();
     }
-
-
-
 }

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-
     public function index()
     {
         $search = request('name');
@@ -16,6 +15,4 @@ class UsersController extends Controller
             ->take(5)
             ->pluck('name');
     }
-
-
 }

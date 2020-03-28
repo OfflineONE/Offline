@@ -3,9 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class MentionUsersTest extends TestCase
@@ -13,16 +10,16 @@ class MentionUsersTest extends TestCase
     use DatabaseMigrations;
 
     /** @test */
-    function mentioned_users_in_a_reply_are_notified()
+    public function mentioned_users_in_a_reply_are_notified()
     {
         $this->withoutExceptionHandling();
 
         $JohnDoe = create('App\User', [
-        'name' => 'JohnDoe'
+            'name' => 'JohnDoe',
         ]);
 
         $JaneDoe = create('App\User', [
-            'name' => 'JaneDoe'
+            'name' => 'JaneDoe',
         ]);
 
         $this->signIn($JohnDoe);
@@ -30,30 +27,29 @@ class MentionUsersTest extends TestCase
         $thread = create('App\Thread');
 
         $reply = make('App\Reply', [
-        'body' => 'This a a reply for @JaneDoe. Also @FrankDoe'
+            'body' => 'This a a reply for @JaneDoe. Also @FrankDoe',
         ]);
 
         $this->postJson($thread->path().'/replies', $reply->toArray());
 
         $this->assertCount(1, $JaneDoe->notifications);
-
     }
 
     /** @test */
-    function it_can_detect_all_mentioned_users_in_the_body()
+    public function it_can_detect_all_mentioned_users_in_the_body()
     {
         $reply = new \App\Reply([
-            'body' => '@JaneDoe wants to talk to @JohnDoe'
+            'body' => '@JaneDoe wants to talk to @JohnDoe',
         ]);
 
         $this->assertEquals(['JaneDoe', 'JohnDoe'], $reply->mentionedUsers());
     }
 
     /** @test */
-    function it_wraps_mentioned_usernames_in_the_body_within_anchor_tags()
+    public function it_wraps_mentioned_usernames_in_the_body_within_anchor_tags()
     {
         $reply = new \App\Reply([
-            'body' => 'Hello @Jane-Doe'
+            'body' => 'Hello @Jane-Doe',
         ]);
         $this->assertEquals(
             'Hello <a href="/profiles/Jane-Doe">@Jane-Doe</a>',
@@ -62,7 +58,7 @@ class MentionUsersTest extends TestCase
     }
 
     /** @test */
-    function it_can_fetch_all_mentioned_users_starting_with_the_given_characters()
+    public function it_can_fetch_all_mentioned_users_starting_with_the_given_characters()
     {
         create('App\User', ['name' => 'johndoe']);
         create('App\User', ['name' => 'johndoe2']);
