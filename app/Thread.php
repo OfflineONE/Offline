@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Providers\ThreadHasNewReply;
 use App\Providers\ThreadReceivedNewReply;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -18,7 +17,7 @@ class Thread extends Model
     protected $appends = ['isSubscribedTo'];
 
     protected $casts = [
-        'locked' => 'boolean'
+        'locked' => 'boolean',
     ];
 
     protected static function boot()
@@ -38,104 +37,103 @@ class Thread extends Model
         });
     }
 
-        public function path()
-        {
-            return "/threads/{$this->channel->slug}/{$this->slug}";
-        }
+    public function path()
+    {
+        return "/threads/{$this->channel->slug}/{$this->slug}";
+    }
 
-        public function replies()
-        {
-            return $this->hasMany(Reply::class);
-        }
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
 
-        public function getReplyCountAttribute()
-        {
-           return $this->replies()->count();
-        }
+    public function getReplyCountAttribute()
+    {
+        return $this->replies()->count();
+    }
 
-        public function owner()
-        {
-            return $this->belongsTo(User::class, 'user_id');
-        }
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
-        public function addReply($reply)
-        {
-            $reply = $this->replies()->create($reply);
+    public function addReply($reply)
+    {
+        $reply = $this->replies()->create($reply);
 
-            event(new ThreadReceivedNewReply($reply));
+        event(new ThreadReceivedNewReply($reply));
 
-            return $reply;
-        }
+        return $reply;
+    }
 
-        public function channel()
-        {
-            return $this->belongsTo(Channel::class);
-        }
+    public function channel()
+    {
+        return $this->belongsTo(Channel::class);
+    }
 
-        public function scopeFilter($query, $filters)
-        {
-            return $filters->apply($query);
-        }
+    public function scopeFilter($query, $filters)
+    {
+        return $filters->apply($query);
+    }
 
-        public function subscribe($userId = null)
-        {
-            $this->subscriptions()->create([
-                'user_id' => $userId ?: auth()->id(),
-            ]);
+    public function subscribe($userId = null)
+    {
+        $this->subscriptions()->create([
+            'user_id' => $userId ?: auth()->id(),
+        ]);
 
-            return $this;
-        }
+        return $this;
+    }
 
-        public function unsubscribe($userId = null)
-        {
-            $this->subscriptions()
+    public function unsubscribe($userId = null)
+    {
+        $this->subscriptions()
                  ->where('user_id', $userId ?: auth()->id())
                  ->delete();
-        }
+    }
 
-        public function subscriptions()
-        {
-            return $this->hasMany(ThreadSubscription::class);
-        }
+    public function subscriptions()
+    {
+        return $this->hasMany(ThreadSubscription::class);
+    }
 
-        public function getIsSubscribedToAttribute()
-        {
-            return $this->subscriptions()
+    public function getIsSubscribedToAttribute()
+    {
+        return $this->subscriptions()
                         ->where('user_id', auth()->id())
                         ->exists();
+    }
+
+    public function hasUpdatesFor($user)
+    {
+        $key = $user->visitedThreadCacheKey($this);
+
+        return $this->updated_at > cache($key);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function setSlugAttribute($value)
+    {
+        $slug = Str::slug($value);
+
+        if (static::whereSlug($slug)->exists()) {
+            $slug = "{$slug}-".$this->id;
         }
 
-        public function hasUpdatesFor($user)
-        {
-            $key =  $user->visitedThreadCacheKey($this);
+        $this->attributes['slug'] = $slug;
+    }
 
-            return $this->updated_at > cache($key);
+    public function toSearchableArray()
+    {
+        return $this->toArray() + ['path' => $this->path()];
+    }
 
-        }
-
-        public function getRouteKeyName()
-        {
-            return 'slug';
-        }
-
-        public function setSlugAttribute($value)
-        {
-            $slug = Str::slug($value);
-
-            if (static::whereSlug($slug)->exists()) {
-                $slug = "{$slug}-" . $this->id;
-            }
-
-            $this->attributes['slug'] = $slug;
-        }
-
-        public function toSearchableArray()
-        {
-            return $this->toArray() + ['path' => $this->path()];
-        }
-
-        public function getBodyAttribute($body)
-        {
-            return \Purify::clean($body);
-        }
+    public function getBodyAttribute($body)
+    {
+        return \Purify::clean($body);
+    }
 }

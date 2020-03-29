@@ -5,11 +5,10 @@ namespace Tests\Feature;
 use App\Channel;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;
 
-class ChannelAdministrationTest extends TestCase
+class ChannelAdministratonTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -23,7 +22,7 @@ class ChannelAdministrationTest extends TestCase
     /** @test */
     public function an_administrator_can_access_the_channel_administration_section()
     {
-       $this->signInAdmin()
+        $this->signInAdmin()
              ->get(route('admin.channels.index'))
              ->assertStatus(Response::HTTP_OK);
     }
@@ -77,5 +76,4 @@ class ChannelAdministrationTest extends TestCase
 
         return $this->post(route('admin.channels.store'), $channel->toArray());
     }
-
 }

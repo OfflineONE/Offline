@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class UpdateThreadsTest extends TestCase
@@ -15,11 +14,11 @@ class UpdateThreadsTest extends TestCase
     {
         parent::setUp();
 
-            $this->signIn();
+        $this->signIn();
     }
 
     /** @test */
-    function a_thread_requires_a_title_and_a_body_to_be_updated()
+    public function a_thread_requires_a_title_and_a_body_to_be_updated()
     {
         $thread = create('App\Thread', ['user_id' => auth()->id()]);
 
@@ -33,7 +32,7 @@ class UpdateThreadsTest extends TestCase
     }
 
     /** @test */
-    function unauthorized_users_may_not_update_threads()
+    public function unauthorized_users_may_not_update_threads()
     {
         $thread = create('App\Thread', ['user_id' => create(User::class)->id]);
 
@@ -42,13 +41,13 @@ class UpdateThreadsTest extends TestCase
     }
 
     /** @test */
-    function a_thread_can_be_updated_by_its_creator()
+    public function a_thread_can_be_updated_by_its_creator()
     {
         $thread = create('App\Thread', ['user_id' => auth()->id()]);
 
         $this->patch($thread->path(), [
             'title' => 'Changed',
-            'body' => 'Changed body.'
+            'body' => 'Changed body.',
         ]);
 
         $this->assertEquals('Changed', $thread->fresh()->title);

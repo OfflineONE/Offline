@@ -3,9 +3,7 @@
 namespace Tests\Feature;
 
 use App\Reputation;
-use App\Thread;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ReputationTest extends TestCase
@@ -16,6 +14,7 @@ class ReputationTest extends TestCase
      *
      * @return void
      */
+
     /** @test */
     public function a_user_earns_points_when_they_create_a_thread()
     {
@@ -93,12 +92,10 @@ class ReputationTest extends TestCase
         $reply->setBestReply($reply);
 
         $this->assertEquals(Reputation::REPLY_POSTED + Reputation::BEST_REPLY_AWARDED, $reply->owner->reputation);
-
-
     }
 
     /** @test */
-    function a_user_earns_reputation_when_their_reply_is_favorited()
+    public function a_user_earns_reputation_when_their_reply_is_favorited()
     {
         $this->signIn();
 
@@ -106,7 +103,7 @@ class ReputationTest extends TestCase
 
         $reply = $thread->addReply([
             'user_id' => auth()->id(),
-            'body' => 'Some reply'
+            'body' => 'Some reply',
         ]);
 
         $this->post("/replies/{$reply->id}/favorites");
@@ -117,7 +114,7 @@ class ReputationTest extends TestCase
     }
 
     /** @test */
-    function a_user_loses_reputation_when_their_reply_is_unfavorited()
+    public function a_user_loses_reputation_when_their_reply_is_unfavorited()
     {
         $this->signIn();
 

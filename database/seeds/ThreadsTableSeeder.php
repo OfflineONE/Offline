@@ -4,7 +4,6 @@ use Illuminate\Database\Seeder;
 
 class ThreadsTableSeeder extends Seeder
 {
-
     public function run()
     {
         factory('App\Thread')->create([
@@ -13,7 +12,7 @@ class ThreadsTableSeeder extends Seeder
             'visits' => '1',
             'title' => 'Administrator testing Title: 1',
             'body' => 'The admin is set on one and will be responsible for standard admin user tests.
-            Testing in Channel 1 Creativity with slug Creativity'
+            Testing in Channel 1 Creativity with slug Creativity',
         ]);
 
         factory('App\Thread')->create([
@@ -22,7 +21,7 @@ class ThreadsTableSeeder extends Seeder
             'visits' => '2',
             'title' => 'Administrator testing Title: 2',
             'body' => 'The admin is set on one and will be responsible for standard admin user tests.
-            Testing in Channel 2 Clean Planet with Slug Clean-planet'
+            Testing in Channel 2 Clean Planet with Slug Clean-planet',
         ]);
 
         factory('App\Thread')->create([
@@ -33,7 +32,7 @@ class ThreadsTableSeeder extends Seeder
             'body' => '
              The admin is set on one and will be responsible for standard admin user tests.
              Testing in Channel 3 Health with Slug Health
-            '
+            ',
         ]);
 
         factory('App\Thread')->create([
@@ -46,7 +45,7 @@ class ThreadsTableSeeder extends Seeder
              People who are creating are successful and happy and those who don´t are slaves.
              If our ultimate purpose is to reproduce than the act of reproduction is creation as well.
              Today more than ever we need a guid to pick us up to leave the path of slavery.
-             '
+             ',
         ]);
 
         factory('App\Thread')->create([
@@ -61,7 +60,7 @@ class ThreadsTableSeeder extends Seeder
              The other one mindfully creating a machine that doe the job for him.
              Who is more successful?
              The creator or the slave?
-             '
+             ',
         ]);
 
         factory('App\Thread')->create([
@@ -81,7 +80,7 @@ class ThreadsTableSeeder extends Seeder
              Start follow your passion.
              Overcome fear.
              Never chase the money.
-            '
+            ',
         ]);
 
         factory('App\Thread')->create([
@@ -89,7 +88,7 @@ class ThreadsTableSeeder extends Seeder
             'channel_id' => '3',
             'visits' => '267',
             'title' => 'Nitai testing Title: 1',
-            'body' => 'The Nitai will provide content'
+            'body' => 'The Nitai will provide content',
         ]);
 
         factory('App\Thread')->create([
@@ -97,7 +96,7 @@ class ThreadsTableSeeder extends Seeder
             'channel_id' => '3',
             'visits' => '18009',
             'title' => 'Nitai testing Title: 2',
-            'body' => 'The Nitai will provide content'
+            'body' => 'The Nitai will provide content',
         ]);
 
         factory('App\Thread')->create([
@@ -105,7 +104,7 @@ class ThreadsTableSeeder extends Seeder
             'channel_id' => '4',
             'visits' => '9',
             'title' => 'Nitai testing Title: 3',
-            'body' => 'The Nitai will provide content'
+            'body' => 'The Nitai will provide content',
         ]);
 
 //        factory('App\Thread')->create();
@@ -114,4 +113,3 @@ class ThreadsTableSeeder extends Seeder
 //        factory('App\Thread', 30)->create();
     }
 }
-

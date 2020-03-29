@@ -2,11 +2,11 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\TestCase;
 
-class ProfilesTest extends TestCase {
-
+class ProfilesTest extends TestCase
+{
     use DatabaseMigrations;
 
     /** @test */
@@ -19,7 +19,7 @@ class ProfilesTest extends TestCase {
     }
 
     /** @test */
-    function profiles_display_all_threads_created_by_the_associated_user()
+    public function profiles_display_all_threads_created_by_the_associated_user()
     {
         $this->signIn($user = create('App\User'));
 
@@ -29,5 +29,4 @@ class ProfilesTest extends TestCase {
              ->assertSee($thread->title)
              ->assertSee($thread->body);
     }
-
 }
