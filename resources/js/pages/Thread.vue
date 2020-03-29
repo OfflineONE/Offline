@@ -27,6 +27,18 @@
             this.resetForm();
         },
 
+                mounted () {
+            this.highlight(this.$refs.question);
+        },
+        watch: {
+            editing() {
+                if(!this.editing) {
+                    setTimeout(() => this.highlight(this.$refs.question), 100);
+                }
+            }
+        },
+
+
         methods: {
           toggleLock() {
              axios[this.locked ? 'delete' : 'post']('/locked-threads/'+this.thread.slug);

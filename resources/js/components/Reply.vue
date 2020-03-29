@@ -8,7 +8,7 @@
                     <a :href="'/profiles/'+reply.owner.name"
                        v-text="reply.owner.name"
                     >
-                </a> said <span v-text="ago"></span> ...
+                </a>said<span v-text="ago"></span>...
             </h5>
                 <div v-if="signedIn">
                     <favorite :reply="reply"></favorite>
@@ -23,7 +23,6 @@
 
                 <div class="mb-4">
                     <wysiwyg v-model="body"></wysiwyg>
-
                 </div>
 
                 <button
@@ -40,7 +39,7 @@
 
             </div>
 
-            <div v-else v-html="body"></div>
+            <div ref="reply-body" v-else v-html="body"></div>
 
         </div>
 
@@ -100,6 +99,19 @@
            window.events.$on('best-reply-selected', id => {
                this.isBest = (id === this.id)
            })
+        },
+
+        mounted() {
+            console.log('Reply Highlight');
+            this.highlight(this.$refs['reply-body']);
+        },
+
+        watch: {
+            editing() {
+                if(! this.editing) {
+                    setTimeout(() => this.highlight(this.$refs['reply-body']), 50)
+                }
+            }
         },
 
         methods: {

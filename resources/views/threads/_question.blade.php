@@ -77,8 +77,7 @@
         </div>
     </div>
 
-    <div class="flex-auto p-6" v-html="body">
-    </div>
+    <div ref="question" class="flex-auto p-6" v-html="body"></div>
 
     <div class="panel-footer"
          v-if="authorize('owns', thread)">
