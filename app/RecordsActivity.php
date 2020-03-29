@@ -2,11 +2,13 @@
 
 namespace App;
 
-trait RecordsActivity {
-
+trait RecordsActivity
+{
     protected static function bootRecordsActivity()
     {
-        if (auth()->guest()) return;
+        if (auth()->guest()) {
+            return;
+        }
 
         foreach (static::getActivitiesToRecord() as $event) {
             static::$event(function ($model) use ($event) {
@@ -24,7 +26,6 @@ trait RecordsActivity {
         return ['created'];
     }
 
-
     protected function recordActivity($event)
     {
         $this->activity()->create([
@@ -38,11 +39,10 @@ trait RecordsActivity {
         return $this->morphMany(Activity::class, 'subject');
     }
 
-
     protected function getActivityType($event)
     {
         $strtolower = strtolower((new \ReflectionClass($this))->getShortName());
 
-        return $event . '_' . $strtolower;
+        return $event.'_'.$strtolower;
     }
 }

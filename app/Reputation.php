@@ -11,7 +11,7 @@ class Reputation
 
     public static function award($user, $points)
     {
-       $user->increment('reputation', $points);
+        $user->increment('reputation', $points);
     }
 
     public static function reduce($user, $points)

@@ -19,13 +19,13 @@ class Reply extends Model
     {
         parent::boot();
 
-        static::created(function($reply) {
+        static::created(function ($reply) {
             $reply->thread->increment('replies_count');
 
             Reputation::award($reply->owner, Reputation::REPLY_POSTED);
         });
 
-        static::deleted(function($reply) {
+        static::deleted(function ($reply) {
             $reply->thread->decrement('replies_count');
 
             Reputation::reduce($reply->owner, Reputation::REPLY_POSTED);
@@ -44,7 +44,7 @@ class Reply extends Model
 
     public function path()
     {
-        return  $this->thread->path() . "#reply-{$this->id}";
+        return  $this->thread->path()."#reply-{$this->id}";
     }
 
     public function wasJustPublished()
@@ -78,12 +78,11 @@ class Reply extends Model
 
     public function getIsBestAttribute()
     {
-       return $this->isBest();
+        return $this->isBest();
     }
 
     public function getBodyAttribute($body)
     {
         return \Purify::clean($body);
     }
-
 }
