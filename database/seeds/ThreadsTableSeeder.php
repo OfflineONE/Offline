@@ -4,7 +4,6 @@ use Illuminate\Database\Seeder;
 
 class ThreadsTableSeeder extends Seeder
 {
-
     public function run()
     {
         factory('App\Thread')->create([
@@ -114,4 +113,3 @@ class ThreadsTableSeeder extends Seeder
 //        factory('App\Thread', 30)->create();
     }
 }
-

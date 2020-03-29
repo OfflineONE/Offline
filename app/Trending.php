@@ -2,12 +2,10 @@
 
 namespace App;
 
-
 use Illuminate\Support\Facades\Redis;
 
 class Trending
 {
-
     public function get()
     {
         return array_map('json_decode', Redis::zrevrange($this->cacheKey(), 0, 4));
@@ -15,11 +13,10 @@ class Trending
 
     public function push($thread)
     {
-            Redis::zincrby($this->cacheKey(), 1, json_encode([
-                'title' => $thread->title,
-                'path' => $thread->path()
+        Redis::zincrby($this->cacheKey(), 1, json_encode([
+            'title' => $thread->title,
+            'path' => $thread->path()
         ]));
-
     }
 
     public function cacheKey()
@@ -31,7 +28,4 @@ class Trending
     {
         Redis::del($this->cacheKey());
     }
-
-
-
 }

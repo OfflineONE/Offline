@@ -69,5 +69,4 @@ class VerificationController extends Controller
             ? redirect($this->redirectPath())
             : redirect('/')->with('flash', 'Please verify your e-mail address');
     }
-
 }

@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\User;
 use App\Thread;
+use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ThreadPolicy
@@ -16,7 +16,6 @@ class ThreadPolicy
 //            return true;
 //        }
 //    }
-
 
     /**
      * Determine whether the user can view any threads.

@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class ChannelsController extends Controller
 {
-      public function index()
+    public function index()
     {
         return view('admin.channels.index')->with('channels', Channel::with('threads')->get());
     }
@@ -27,7 +27,7 @@ class ChannelsController extends Controller
             'description' => 'required',
         ]);
 
-        $channel = Channel::create($data + [ 'slug' => str::slug($data['name'])]);
+        $channel = Channel::create($data + ['slug' => str::slug($data['name'])]);
 
         Cache::forget('channels');
 
