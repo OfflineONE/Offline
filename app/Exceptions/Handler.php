@@ -3,7 +3,6 @@
 namespace App\Exceptions;
 
 use Exception;
-use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
 use Throwable;
@@ -52,7 +51,7 @@ class Handler extends ExceptionHandler
 //        if(app()->environment() === 'testing')throw $exception;
         if ($exception instanceof ValidationException) {
             if ($request->expectsJson()) {
-            return response('Sorry, validation failed', 422);
+                return response('Sorry, validation failed', 422);
             }
         }
 
@@ -60,7 +59,8 @@ class Handler extends ExceptionHandler
 //        if ($request->wantsJson()) {
             return response('Sorry, you are posting too fast', 429);
 //        }
-    }
+        }
+
         return parent::render($request, $exception);
     }
 }

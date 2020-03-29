@@ -11,7 +11,6 @@
 |
 */
 
-
 //use Illuminate\Support\Facades\Http;
 //
 //Route::get('/example', function () {
@@ -23,7 +22,6 @@
 //       dd($response->header('Vary'));
 //    }
 //});
-
 
 Route::view('/', 'welcome');
 
@@ -42,7 +40,6 @@ Route::patch('threads/{channel}/{thread}', 'ThreadsController@update');
 Route::delete('threads/{channel}/{thread}', 'ThreadsController@destroy');
 Route::post('threads', 'ThreadsController@store')->middleware('verified');
 Route::get('threads/{channel}', 'ThreadsController@index');
-
 
 Route::post('locked-threads/{thread}', 'LockedThreadsController@store')->name('locked-threads.store')->middleware('admin');
 Route::delete('locked-threads/{thread}', 'LockedThreadsController@destroy')->name('locked-threads.destroy')->middleware('admin');
@@ -67,12 +64,11 @@ Route::post('/api/users/{user}/avatar', 'api\UserAvatarController@store')->middl
 
 Route::post('/replies/{reply}/best', 'BestRepliesController@store')->name('best-replies.store');
 
-
 Route::group([
     'prefix' => 'admin',
     'middleware' => 'admin',
     'namespace' => 'Admin'
-], function() {
+], function () {
     Route::get('/', 'DashboardController@index')->name('admin.dashboard.index');
     Route::post('/channels', 'ChannelsController@store')->name('admin.channels.store');
     Route::get('/channels', 'ChannelsController@index')->name('admin.channels.index');

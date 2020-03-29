@@ -3,22 +3,20 @@
 namespace App\Filters;
 
 use App\User;
-use Illuminate\Http\Request;
-
 
 class ThreadFilters extends Filters
 {
     protected $filters = ['by', 'popular', 'unanswered'];
+
     /**
-     * Filter the query by a given username
+     * Filter the query by a given username.
      * @param  string $username
      * @return mixed
      */
-    
     protected function by($username)
     {
         $user = User::where('name', 'like', $username)->firstOrfail();
-        
+
         return $this->builder->where('user_id', $user->id);
     }
 
@@ -33,6 +31,4 @@ class ThreadFilters extends Filters
     {
         return $this->builder->where('replies_count', 0);
     }
-    
-
 }

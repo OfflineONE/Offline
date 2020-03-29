@@ -3,7 +3,6 @@
 namespace App\Http;
 
 use App\Http\Middleware\Administrator;
-use App\Http\Middleware\RedirectIfEmailNotConfirmed;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel

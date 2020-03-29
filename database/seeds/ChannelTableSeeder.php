@@ -4,7 +4,6 @@ use Illuminate\Database\Seeder;
 
 class ChannelTableSeeder extends Seeder
 {
-
     public function run()
     {
         factory('App\Channel')->create([
@@ -24,7 +23,5 @@ class ChannelTableSeeder extends Seeder
             'name' => 'Spirituality',
             'slug' => 'Spirituality'
         ]);
-
     }
 }
-

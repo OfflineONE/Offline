@@ -4,7 +4,6 @@
 
  class UserTableSeeder extends Seeder
  {
-
      public function run()
      {
          factory('App\User')->create([
@@ -27,7 +26,6 @@
              'email' => 'nitai@nitai.com',
              'password' => bcrypt('testtest'),
          ]);
-
 
          factory('App\User', 50)->create();
      }

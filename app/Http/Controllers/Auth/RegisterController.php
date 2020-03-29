@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Redirect;
-
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -83,13 +82,10 @@ class RegisterController extends Controller
         $this->guard()->login($user);
 
         return $this->registered($request, $user);
-
     }
 
     protected function registered(Request $request, $user)
     {
-          return redirect($this->redirectPath())->with(['flash' => 'You have been registered please verify your email address to post']);
+        return redirect($this->redirectPath())->with(['flash' => 'You have been registered please verify your email address to post']);
     }
-
-
 }

@@ -1,11 +1,9 @@
 <?php
 
-
 namespace App\Inspections;
 
-
-class Spam {
-
+class Spam
+{
     protected $inspections = [
         KeyHeldDown::class,
         InvalidKeywords::class
@@ -17,7 +15,6 @@ class Spam {
             app($inspection)->detect($body);
         }
 
-        return FALSE;
+        return false;
     }
-
 }
