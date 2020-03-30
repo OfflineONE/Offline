@@ -14,7 +14,8 @@ yarn-error.log
 dump.rdb
 council.php
 !/.gitignore
-config/council.php
+config/admin.php
 dump.rdb
 dump.rdb
 *.rdb
+config/admin.php

@@ -86,6 +86,6 @@ Step 7
 
 1. Visit: http://offline.test/register and register an account.
 
-1. Edit `config/council.php`, adding the email address of the account you just created.
+1. Edit `config/admin.php`, adding the email address of the account you just created.
 
 1. Visit: http://offline.test/admin/channels and add at least one channel. 

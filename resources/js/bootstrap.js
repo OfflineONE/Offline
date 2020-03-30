@@ -54,7 +54,7 @@ let Highlighter = require('highlight.js');
 require('highlight.js/styles/foundation.css'); // load Foundation style
 
 Vue.prototype.highlight = function (block) {
-    if(!block) return;
+    if(! block) return;
     block.querySelectorAll('pre').forEach(function(node) {
         Highlighter.highlightBlock(node);
     });
