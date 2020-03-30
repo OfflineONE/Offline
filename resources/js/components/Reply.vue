@@ -39,7 +39,9 @@
 
             </div>
 
-            <div ref="reply-body" v-else v-html="body"></div>
+            <div ref="body" v-else>
+                <highlight :content="body"></highlight>
+            </div>
 
         </div>
 
@@ -74,11 +76,12 @@
 <script>
     import Favorite from "./Favorite.vue";
     import moment from 'moment';
+    import Highlight from './Highlight.vue';
 
     export default {
         props: ['reply'],
 
-        components: { Favorite },
+        components: { Favorite, Highlight },
 
         data() {
             return {
@@ -99,19 +102,6 @@
            window.events.$on('best-reply-selected', id => {
                this.isBest = (id === this.id)
            })
-        },
-
-        mounted() {
-            console.log('Reply Highlight');
-            this.highlight(this.$refs['reply-body']);
-        },
-
-        watch: {
-            editing() {
-                if(! this.editing) {
-                    setTimeout(() => this.highlight(this.$refs['reply-body']), 50)
-                }
-            }
         },
 
         methods: {

@@ -19,3 +19,5 @@ dump.rdb
 dump.rdb
 *.rdb
 config/admin.php
+public/js/app.js
+dump.rdb
