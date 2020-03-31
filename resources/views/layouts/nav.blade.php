@@ -70,22 +70,7 @@
                         <li><a href="/threads?unanswered=1">Unanswered Threads</a></li>
                     </ul>
                 </li>
-
-                <li class="dropdown mr-5">
-                    <a href="#"
-                       class="dropdown-toggle"
-                       data-toggle="dropdown"
-                       role="button"
-                       aria-haspopup="true"
-                       aria-expanded="false"
-                    >Channels <span class="caret"></span></a>
-
-                    <ul class="dropdown-menu">
-                        @foreach ($channels as $channel)
-                            <li><a href="/threads/{{ $channel->slug }}">{{ $channel->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
+                <channel-dropdown :channels="{{ $channels }}"></channel-dropdown>
             </ul>
 
             <!-- Right Side Of Navbar -->
