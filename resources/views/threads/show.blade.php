@@ -37,10 +37,15 @@
                         <p>
                             <subscribe-button :active="{{ json_encode($thread->isSubscribedTo) }}"></subscribe-button>
 
-                            <button class="btn-primary mr-2 rounded bg-danger p-2"
+                            <button :class="classes(locked)"
                                     v-if="authorize('isAdmin')"
                                     @click="toggleLock"
                                     v-text="locked ? 'Unlock' : 'Lock'">Lock thread</button>
+
+                            <button :class="classes(pinned)"
+                                    v-if="authorize('isAdmin')"
+                                    @click="togglePin"
+                                    v-text="pinned ? 'Unpin' : 'Pin'"></button>
                         </p>
                     </div>
 
