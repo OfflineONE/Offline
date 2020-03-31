@@ -89,3 +89,9 @@ Step 7
 1. Edit `config/admin.php`, adding the email address of the account you just created.
 
 1. Visit: http://offline.test/admin/channels and add at least one channel. 
+
+--------------------------------------------------------------------
+
+For production set:
+
+QUEUE_DRIVER=database
