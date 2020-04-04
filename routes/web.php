@@ -22,15 +22,9 @@
 //       dd($response->header('Vary'));
 //    }
 //});
-use App\Channel;
-
-$channels = Channel::all();
-
-Route::view('/', 'welcome', compact('channels'));
-
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'ProfilesController@show')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('threads/search', 'SearchController@show');
 
