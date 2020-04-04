@@ -14,7 +14,6 @@ class Thread extends Model
 
     protected $guarded = [];
     protected $with = ['owner', 'channel'];
-    protected $appends = ['isSubscribedTo', 'path'];
 
     protected $casts = [
         'locked' => 'boolean',
