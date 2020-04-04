@@ -63,7 +63,7 @@
     @yield('header')
 
 </head>
-    <body class="bg-blue-600">
+    <body class="bg-blue-100">
         <div id="app">
                 @include('layouts/nav')
                 @yield('content')

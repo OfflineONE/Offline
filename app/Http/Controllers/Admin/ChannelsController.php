@@ -7,13 +7,22 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class ChannelsController extends Controller
 {
+   /**
+     * Show all channels.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        return view('admin.channels.index')->with('channels', Channel::with('threads')->get());
+        $channels = Channel::withoutGlobalScope('active')->with('threads')->get();
+
+        return view('admin.channels.index', compact('channels'));
     }
+
 
     public function create()
     {
@@ -39,8 +48,9 @@ class ChannelsController extends Controller
     {
         $channel->update(
             request()->validate([
-                'name' => 'required|unique:channels',
+                'name' => ['required', Rule::unique('channels')->ignore($channel)],
                 'description' => 'required',
+                'archived' => 'required|boolean'
             ])
         );
 

@@ -7,6 +7,7 @@ use App\Filters\ThreadFilters;
 use App\Thread;
 use App\Trending;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ThreadsController extends Controller
 {
@@ -25,15 +26,20 @@ class ThreadsController extends Controller
 
         $trending->get();
 
+        $channels = Channel::all();
+
         return view('threads.index', [
             'threads' => $threads,
-            'trending' => $trending->get()
+            'trending' => $trending->get(),
+            'channels' => $channels
         ]);
     }
 
     public function create()
     {
-        return view('threads.create');
+        return view('threads.create', [
+            'channels' => Channel::orderBy('name', 'asc')->get()
+        ]);
     }
 
     public function store(Request $request)
@@ -82,7 +88,9 @@ class ThreadsController extends Controller
 
         $thread->increment('visits');
 
-        return view('threads.show', compact('thread'));
+        $channels = Channel::all();
+
+        return view('threads.show', compact('thread', 'channels'));
     }
 
     public function edit(Thread $thread)

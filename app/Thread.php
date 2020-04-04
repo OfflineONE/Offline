@@ -14,7 +14,7 @@ class Thread extends Model
 
     protected $guarded = [];
     protected $with = ['owner', 'channel'];
-    protected $appends = ['isSubscribedTo'];
+    protected $appends = ['isSubscribedTo', 'path'];
 
     protected $casts = [
         'locked' => 'boolean',
@@ -69,7 +69,7 @@ class Thread extends Model
 
     public function channel()
     {
-        return $this->belongsTo(Channel::class);
+        return $this->belongsTo(Channel::class)->withoutGlobalScope('active');
     }
 
     public function scopeFilter($query, $filters)
@@ -136,5 +136,17 @@ class Thread extends Model
     public function getBodyAttribute($body)
     {
         return \Purify::clean($body);
+    }
+
+       /**
+     * Fetch the path to the thread as a property.
+     */
+    public function getPathAttribute()
+    {
+        if (! $this->channel) {
+            return '';
+        }
+
+        return $this->path();
     }
 }

@@ -22,8 +22,11 @@
 //       dd($response->header('Vary'));
 //    }
 //});
+use App\Channel;
+$channels = Channel::all();
 
-Route::view('/', 'welcome');
+Route::view('/', 'welcome', compact('channels'));
+
 
 Auth::routes(['verify' => true]);
 
@@ -64,6 +67,7 @@ Route::delete('/profiles/{user}/notifications/{notification}', 'UserNotification
 
 Route::get('/api/users', 'UsersController@index');
 Route::post('/api/users/{user}/avatar', 'api\UserAvatarController@store')->middleware('auth')->name('avatar');
+Route::get('/api/channels', 'api\ChannelsController@index');
 
 Route::post('/replies/{reply}/best', 'BestRepliesController@store')->name('best-replies.store');
 
