@@ -138,7 +138,7 @@ class Thread extends Model
         return \Purify::clean($body);
     }
 
-       /**
+    /**
      * Fetch the path to the thread as a property.
      */
     public function getPathAttribute()
