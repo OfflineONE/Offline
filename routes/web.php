@@ -23,10 +23,10 @@
 //    }
 //});
 use App\Channel;
+
 $channels = Channel::all();
 
 Route::view('/', 'welcome', compact('channels'));
-
 
 Auth::routes(['verify' => true]);
 
