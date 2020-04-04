@@ -7,7 +7,6 @@ use App\Filters\ThreadFilters;
 use App\Thread;
 use App\Trending;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ThreadsController extends Controller
 {
