@@ -46,14 +46,14 @@ class ThreadsController extends Controller
     {
         request()->validate(
             [
-            'title' => 'required|spamfree',
-            'body' => 'required|spamfree',
-            'channel_id' => [
-                'required',
-                Rule::exists('channels', 'id')->where(function ($query) {
-                    $query->where('archived', false);
-                }),
-             ],
+                'title' => 'required|spamfree',
+                'body' => 'required|spamfree',
+                'channel_id' => [
+                    'required',
+                    Rule::exists('channels', 'id')->where(function ($query) {
+                        $query->where('archived', false);
+                    }),
+                ],
             ]);
 
         $thread = Thread::create([
