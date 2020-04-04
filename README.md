@@ -17,8 +17,25 @@ A tool to generate a global vision
 
 Prerequisites:
 --------------------------------------------------------------------
+
+```
+macOS
+```
+```
+Laravel valet or homestead
+```
+```
 PHP 7.4
+```
+```
+git
+```
+```
 Composer latest version
+```
+```
+install Redis-server
+```
 --------------------------------------------------------------------
 
 Step 1
