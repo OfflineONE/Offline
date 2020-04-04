@@ -11,7 +11,7 @@ use Illuminate\Validation\Rule;
 
 class ChannelsController extends Controller
 {
-   /**
+    /**
      * Show all channels.
      *
      * @return \Illuminate\Http\Response
@@ -22,7 +22,6 @@ class ChannelsController extends Controller
 
         return view('admin.channels.index', compact('channels'));
     }
-
 
     public function create()
     {
