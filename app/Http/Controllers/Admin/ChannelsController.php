@@ -32,9 +32,11 @@ class ChannelsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit(Channel $channel)
+    public function edit($slug)
     {
-        return view('admin.channels.edit', compact('channel'));
+        $channels = Channel::withArchived()->get();
+        $channel = Channel::withArchived()->where('slug', $slug)->first();
+        return view('admin.channels.edit', compact('channel'), compact('channels'));
     }
 
     /**
