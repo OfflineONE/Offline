@@ -36,6 +36,7 @@ class ChannelsController extends Controller
     {
         $channels = Channel::withArchived()->get();
         $channel = Channel::withArchived()->where('slug', $slug)->first();
+
         return view('admin.channels.edit', compact('channel'), compact('channels'));
     }
 
