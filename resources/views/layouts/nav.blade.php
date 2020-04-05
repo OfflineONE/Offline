@@ -70,7 +70,7 @@
                         <li><a href="/threads?unanswered=1">Unanswered Threads</a></li>
                     </ul>
                 </li>
-                <channel-dropdown :channels="{{ $channels }}"></channel-dropdown>
+                <channel-dropdown></channel-dropdown>
             </ul>
 
             <!-- Right Side Of Navbar -->
