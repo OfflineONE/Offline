@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Channel;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -18,7 +17,7 @@ class ChannelsController extends Controller
      */
     public function index()
     {
-        $channels = Channel::withoutGlobalScope('active')->withCount('threads')->get();
+        $channels = Channel::withArchived()->withCount('threads')->get();
 
         return view('admin.channels.index', compact('channels'));
     }
