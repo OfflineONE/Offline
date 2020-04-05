@@ -101,6 +101,18 @@ class ChannelAdministrationTest extends TestCase
     }
 
     /** @test */
+    public function the_path_to_a_thread_is_unaffected_by_its_channels_archived_status()
+    {
+        $thread = create(\App\Thread::class);
+        $path = $thread->path();
+
+        $thread->channel->archive();
+
+        $this->assertEquals($path, $thread->fresh()->path());
+    }
+
+
+    /** @test */
     public function a_channel_requires_a_name()
     {
         $this->createChannel(['name' => null])
