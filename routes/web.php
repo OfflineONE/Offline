@@ -26,7 +26,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('threads/search', 'SearchController@show');
+Route::get('threads/search', 'SearchController@show')->name('search');
 
 Route::view('scan', 'scan');
 
