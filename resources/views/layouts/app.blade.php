@@ -30,7 +30,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="shortcut icon" href="#" />
 
-<link rel="icon" href="{{ URL::asset('img/favicon.ico') }}" type="image/x-icon"/>
+    <link rel="icon" href="{{ URL::asset('img/favicon.ico') }}" type="image/x-icon"/>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
