@@ -45,4 +45,5 @@ class AddAvatarTest extends TestCase {
 
         return back();
     }
+
 }
