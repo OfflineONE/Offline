@@ -40,6 +40,10 @@
         "padding-bottom: 100px;"
         }
 
+       body {
+        padding-top: 65px;
+        }
+
         .level {
             display: flex;
             align-items: center;
