@@ -17,13 +17,13 @@
         "laracasts/generators": "dev-master",
         "laravel/framework": "^7.0",
         "laravel/scout": "^8.0",
-        "laravel/telescope": "^3.1",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "predis/predis": "^1.1",
         "stevebauman/purify": "^3.0"
     },
     "require-dev": {
+        "laravel/telescope": "^3.1",
         "facade/ignition": "^2.0",
         "barryvdh/laravel-debugbar": "dev-master",
         "filp/whoops": "^2.0",
