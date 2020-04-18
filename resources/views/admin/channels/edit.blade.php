@@ -2,8 +2,7 @@
 
 @section('administration-content')
     <form method="POST" action="{{ route('admin.channels.update', ['channel' => $channel->slug]) }}">
-        @csrf
-        {{ method_field('PATCH') }}
+        @method('PATCH')
         @include ('admin.channels._form', ['buttonText' => 'Update Channel'])
     </form>
 @endsection

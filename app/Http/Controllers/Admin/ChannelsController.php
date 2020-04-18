@@ -40,11 +40,6 @@ class ChannelsController extends Controller
         return view('admin.channels.edit', compact('channel'), compact('channels'));
     }
 
-    /**
-     * Update an existing channel.
-     *
-     * @return \Illuminate\
-     */
     public function update(Channel $channel)
     {
         $channel->update(

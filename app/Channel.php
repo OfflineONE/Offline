@@ -24,18 +24,18 @@ class Channel extends Model
     /**
      * Boot the channels model.
      */
-    protected static function boot()
-    {
-        parent::boot();
+//    protected static function boot()
+//    {
+//        parent::boot();
 
-        static::addGlobalScope('active', function ($builder) {
-            $builder->where('archived', false);
-        });
+//        static::addGlobalScope('active', function ($builder) {
+//            $builder->where('archived', false);
+//        });
 
-        static::addGlobalScope('sorted', function ($builder) {
-            $builder->orderBy('name', 'asc');
-        });
-    }
+//        static::addGlobalScope('sorted', function ($builder) {
+//            $builder->orderBy('name', 'asc');
+//        });
+//    }
 
     /**
      * Get the route key name for Laravel.
