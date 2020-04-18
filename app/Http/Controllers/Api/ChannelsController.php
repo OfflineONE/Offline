@@ -14,7 +14,7 @@ class ChannelsController extends Controller
     public function index()
     {
         return Cache::rememberForever('channels', function () {
-            return Channel::where('archived', FALSE)->orderBy('name', 'asc')->get();
+            return Channel::where('archived', false)->orderBy('name', 'asc')->get();
         });
     }
 }
