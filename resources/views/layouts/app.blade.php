@@ -20,7 +20,7 @@
             ]) !!}
     </script>
 
-    <script src="{{ asset('js/app.js') }}" defer>
+    <script src="/js/app.js" defer>
 
     </script>
 
@@ -30,10 +30,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="shortcut icon" href="#" />
 
-    <link rel="icon" href="{{ URL::asset('img/favicon.ico') }}" type="image/x-icon"/>
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon"/>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
 
     <style>
         body {
