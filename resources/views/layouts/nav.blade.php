@@ -13,7 +13,7 @@
 
         <!-- Branding Image -->
 
-                <a class="navbar-nav mr-auto" href="{{ url('/') }}">
+                <a class="navbar-nav mr-auto" href="/">
                     <svg height="40px" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"
                     >
                         <g id="Layer_2">
