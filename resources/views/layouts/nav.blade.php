@@ -46,7 +46,7 @@
 {{--                //mx auto = center align--}}
 
                 <li class="mr-5">
-                    <a href="{{ route('search') }}">Search</a>
+                    <a href="search">Search</a>
                 </li>
 
                 <li class="mr-5">
