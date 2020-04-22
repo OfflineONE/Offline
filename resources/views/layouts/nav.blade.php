@@ -84,7 +84,7 @@
 {{--    TODO there is no avatar folder und storage app public--}}
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">Login</a></li>
+                    <li><a href="/login">Login</a></li>
                     <li><a href="{{ route('register') }}">Register</a></li>
                 @else
                     <user-notifications></user-notifications>
