@@ -8,7 +8,7 @@
                 <div class="py-3 px-6 mb-0 bg-grey-lighter border-b-1 border-grey-light text-grey-darkest">{{ __('Register') }}</div>
 
                 <div class="flex-auto p-6">
-                    <form method="POST" action="register">
+                    <form method="POST" action="/register">
                         @csrf
 
                         <div class="mb-4 flex flex-wrap">
