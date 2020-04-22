@@ -46,7 +46,7 @@
 {{--                //mx auto = center align--}}
 
                 <li class="mr-5">
-                    <a href="search">Search</a>
+                    <a href="/threads/search">Search</a>
                 </li>
 
                 <li class="mr-5">
