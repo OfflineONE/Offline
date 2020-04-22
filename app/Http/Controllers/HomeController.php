@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -23,7 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        dd(request()->server());
+
         $channels = Channel::all();
+
 
         return view('home', compact('channels'));
     }
