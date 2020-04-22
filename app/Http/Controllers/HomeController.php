@@ -23,8 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        dd(request()->server());
-
         $channels = Channel::all();
 
         return view('home', compact('channels'));
