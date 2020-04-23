@@ -59,9 +59,15 @@ Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile.show');
 Route::get('/profiles/{user}/notifications', 'UserNotificationsController@index');
 Route::delete('/profiles/{user}/notifications/{notification}', 'UserNotificationsController@destroy');
 
+//---------------API section------------------
+
 Route::get('/api/users', 'UsersController@index');
-Route::post('/api/users/{user}/avatar', 'api\UserAvatarController@store')->middleware('auth')->name('avatar');
-Route::get('/api/channels', 'api\ChannelsController@index');
+
+Route::post('/api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth')->name('avatar');
+
+Route::get('/api/channels', 'Api\ChannelsController@index');
+
+//---------------End-API section--------------
 
 Route::post('/replies/{reply}/best', 'BestRepliesController@store')->name('best-replies.store');
 
