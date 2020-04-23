@@ -65,7 +65,7 @@ Route::get('/api/users', 'UsersController@index');
 
 Route::post('/api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth')->name('avatar');
 
-Route::get('/api/channels', 'Api\ChannelsController@index');
+Route::get('/api/channels', 'Api/ChannelsController@index');
 
 //---------------End-API section--------------
 
