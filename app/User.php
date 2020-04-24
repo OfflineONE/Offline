@@ -81,7 +81,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getAvatarPathAttribute($avatar) //user->avatar_path Eloquent Mutators
     {
-        return asset($avatar ?: '/storage/avatars/default2.jpg');
+        return asset($avatar ?: '/storage/avatars/anonymous.png');
     }
 
     public function isAdmin()
