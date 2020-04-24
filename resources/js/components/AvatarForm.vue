@@ -32,7 +32,7 @@
 
         data() {
             return {
-                avatar: this.user.avatar_path
+                avatar: "/storage"+this.user.avatar_path
             };
         },
 
