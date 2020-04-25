@@ -8,6 +8,7 @@
                 <ul class="nav nav-pills nav-stacked">
                     <li role="presentation"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
                     <li role="presentation"><a href="{{ route('admin.channels.index') }}">Channels</a></li>
+                    <li role="presentation"><a href="/register">Add human</a></li>
                 </ul>
             </div>
 
