@@ -17,12 +17,12 @@ return [
         'ADMIN_12' => env('ADMIN_12', 'Laravel'),
         'ADMIN_13' => env('ADMIN_13', 'Laravel'),
         'ADMIN_14' => env('ADMIN_14', 'Laravel'),
-        'ADMIN_15' => env('ADMIN_15', 'Laravel'),
-        'ADMIN_16' => env('ADMIN_16', 'Laravel'),
-        'ADMIN_17' => env('ADMIN_17', 'Laravel'),
-        'ADMIN_18' => env('ADMIN_18', 'Laravel'),
-        'ADMIN_19' => env('ADMIN_19', 'Laravel'),
-        'ADMIN_20' => env('ADMIN_20', 'Laravel'),
+            'ADMIN_15' => env('ADMIN_15', 'Laravel'),
+            'ADMIN_16' => env('ADMIN_16', 'Laravel'),
+            'ADMIN_17' => env('ADMIN_17', 'Laravel'),
+            'ADMIN_18' => env('ADMIN_18', 'Laravel'),
+            'ADMIN_19' => env('ADMIN_19', 'Laravel'),
+            'ADMIN_20' => env('ADMIN_20', 'Laravel'),
     ],
 
 ];
