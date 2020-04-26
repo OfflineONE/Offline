@@ -4,7 +4,7 @@ return [
 
     'administrators' => [
         'ADMIN_1' => env('ADMIN_1', 'Laravel'),
-        'ADMIN_2' => env('ADMIN_2', 'Laravel'),
+        //    'ADMIN_2' => env('ADMIN_2', 'Laravel'),
         //    'ADMIN_3' => env('ADMIN_3', 'Laravel'),
         //    'ADMIN_4' => env('ADMIN_4', 'Laravel'),
         //    'ADMIN_5' => env('ADMIN_5', 'Laravel'),
