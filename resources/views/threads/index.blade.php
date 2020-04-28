@@ -8,29 +8,6 @@
                 {{ $threads->render() }}
             </div>
 
-            <div class="">
-
-                <div class="">
-                    <div class="">
-                        Search
-                    </div>
-
-                    <div class="">
-                        <form method="GET"
-                              action="/threads/search">
-                            <input type="text"
-                                   placeholder="Search for something ..."
-                                   name="q"
-                                   class="form-control"
-                            >
-                            <button
-                                type="submit"
-                                class="bg-primary form-control"
-                            >Search</button>
-                        </form>
-                </div>
-            </div>
-
                 @if(count($trending))
                     <div class="panel panel-default">
                         <div class="panel-heading">
