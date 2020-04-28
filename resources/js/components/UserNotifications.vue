@@ -1,5 +1,5 @@
 <template>
-   <li class="relative" v-if="notifications.length">
+   <div class="relative" v-if="notifications.length">
        <a href="#"
           class=""
           data-toggle="dropdown"
@@ -17,7 +17,7 @@
                ></a>
            </li>
        </ul>
-   </li>
+   </div>
 </template>
 
 <script>

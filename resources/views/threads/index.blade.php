@@ -8,14 +8,14 @@
                 {{ $threads->render() }}
             </div>
 
-            <div class="col-md-8">
+            <div class="">
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="">
+                    <div class="">
                         Search
                     </div>
 
-                    <div class="panel-body form-group">
+                    <div class="">
                         <form method="GET"
                               action="/threads/search">
                             <input type="text"
@@ -37,16 +37,14 @@
                            Trending Threads
                         </div>
 
-                    <div class="panel-body">
-                        <ul class="list-group">
+                    <div class="border-blue-500 rounded-lg border-2">
                             @foreach($trending as $thread)
-                                    <li class="list-group-item">
-                                        <a href="{{ url($thread->path) }}">
-                                            {{ $thread->title }}
-                                        </a>
-                                    </li>
+                            <div>
+                                <a href="{{ url($thread->path) }}">
+                                    {{ $thread->title }}
+                                </a>
+                            </div>
                             @endforeach
-                        </ul>
                     </div>
 
                 </div>

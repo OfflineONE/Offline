@@ -1,5 +1,6 @@
 {{--Editing the question; down is the sam HTML mark up but for not editing the question--}}
-<div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-grey-light mt-2"
+<div class="flex flex-col min-w-0 rounded break-words border bg-white border-1 border-grey-light mt-2"
+{{--     removed relative from class to make it vanish behind curtain hen pressing avatar or search dont know what it was for--}}
      v-if="editing"
 
     >
@@ -54,7 +55,8 @@
 
 
 {{--Viewing the question--}}
-<div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-grey-light mt-2"
+<div class="flex flex-col min-w-0 rounded break-words border bg-white border-1 border-grey-light mt-2"
+ {{--     removed relative from class to make it vanish behind curtain hen pressing avatar or search dont know what it was for--}}
      v-else >
     <div class="py-3 px-6 mb-0 border-b-2">
         <div class="level">

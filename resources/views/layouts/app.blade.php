@@ -40,9 +40,6 @@
         "padding-bottom: 100px;"
         }
 
-       body {
-        padding-top: 65px;
-        }
 
         .level {
             display: flex;
@@ -67,7 +64,7 @@
     @yield('header')
 
 </head>
-    <body class="bg-gray-400">
+    <body class="bg-white">
         <div id="app">
                 @include('layouts/nav')
                 @yield('content')

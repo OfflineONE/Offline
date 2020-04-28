@@ -1,5 +1,5 @@
 <template>
-    <li class="dropdown">
+    <div class="dropdown">
         <a href="#"
            class="dropdown-toggle"
            data-toggle="dropdown"
@@ -24,7 +24,7 @@
                 </li>
             </ul>
         </div>
-    </li>
+    </div>
 
 </template>
 

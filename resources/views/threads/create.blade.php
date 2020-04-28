@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto mt-4">
+    <div class="mt-4">
         <div class="flex flex-wrap justify-center">
-            <div class="md:w-2/3 pr-4 pl-4">
-                <div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-grey-light">
+            <div class="w-2/3 pr-4 pl-4">
+                <div class="flex flex-col min-w-0 rounded break-words border bg-white border-1 border-grey-light">
                     <div class="py-3 px-6 mb-0 bg-grey-lighter border-b-1 border-grey-light text-grey-darkest">Create a new thread</div>
 
                     <div class="flex-auto p-6">
@@ -55,7 +55,7 @@
                         </div>
 
                             @if(count($errors))
-                                <ul class="relative px-3 py-3 mb-4 border rounded text-red-darker border-red-dark bg-red-lighter">
+                                <ul class="px-3 py-3 mb-4 border rounded text-red-darker border-red-dark bg-red-300">
                                     @foreach($errors->all() as $error)
                                         <li>{{ $error }}</li>
                                     @endforeach

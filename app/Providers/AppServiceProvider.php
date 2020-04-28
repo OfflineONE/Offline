@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Channel;
+use App\User;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,6 +30,13 @@ class AppServiceProvider extends ServiceProvider
 //            });
 //            $view->with('channels', $channels);
 //        });
+
+//        \View::composer('*', function ($view) {
+//        $profileUser = \Cache::rememberForever('profileUser', function () {
+//            return User::auth();
+//        });
+//        $view->with('profileUser', $profileUser);
+//    });
 
         \Validator::extend('spamfree', 'App\Rules\SpamFree@passes');
     }

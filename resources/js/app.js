@@ -24,6 +24,8 @@ Vue.component('user-notifications', require('./components/UserNotifications.vue'
 Vue.component('avatar-form', require('./components/AvatarForm.vue').default);
 Vue.component('wysiwyg', require('./components/Wysiwyg.vue').default);
 Vue.component('channel-dropdown', require('./components/ChannelDropdown.vue').default);
+Vue.component('searchbar', require('./components/Searchbar.vue').default);
+Vue.component('avatar', require('./components/Avatar.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
