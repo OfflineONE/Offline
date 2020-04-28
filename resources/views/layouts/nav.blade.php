@@ -68,9 +68,35 @@
    </div>
 
     <div class="level">
+
         <channel-dropdown></channel-dropdown>
-        <a href="" class="text-lg ml-2 hover:no-underline">Browse</a>
-        <a href="/threads/create" class="ml-4 bg-blue-500 border-white hover:no-underline hover:bg-blue-400 rounded-full text-white px-2 py-0.8 text-lg" >Create</a>
+
+{{--        Browse Threads--}}
+
+        <div class="dropdown mr-5">
+
+            <a href="#"
+               class="dropdown-toggle ml-4 bg-blue-500 border-white hover:no-underline hover:bg-blue-400 rounded-full text-white px-2 py-0.8 text-lg"
+               data-toggle="dropdown"
+               role="button"
+               aria-haspopup="true"
+               aria-expanded="false">
+                Browse <span class="caret"></span></a>
+
+            <ul class="dropdown-menu">
+                <li><a href="/threads">All Topics</a></li>
+
+                @if (auth()->check())
+                    <li><a href="/threads?by={{ auth()->user()->name }}">My Threads</a></li>
+                @endif
+
+                <li><a href="/threads?popular=1">Popular Threads</a></li>
+                <li><a href="/threads?unanswered=1">Unanswered Threads</a></li>
+            </ul>
+        </div>
+
+        <a href="/threads/create" class="ml-4 bg-blue-500 border-white hover:no-underline hover:bg-blue-400 rounded-full text-white px-2 py-0.8 text-lg">Create</a>
+
     </div>
 
 

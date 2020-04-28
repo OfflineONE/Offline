@@ -13,7 +13,7 @@
     <div class="container mx-auto">
         <div class="flex flex-wrap">
 {{--            // v-cloak is important to not show freatures a millisecond preload before page laod--}}
-            <div class="md:w-2/3 pr-4 pl-4 v-cloak">
+            <div class="w-2/3 pr-4 pl-4 v-cloak">
 
                @include('threads._question')
 
@@ -22,7 +22,7 @@
                          @remove="repliesCount--"></replies>
 
             </div>
-            <div class="md:w-1/3 pr-4 pl-4">
+            <div class="w-1/3 pr-4 pl-4">
                 <div class="flex flex-col min-w-0 rounded break-words border bg-white border-1 border-grey-light">
                     <div class="flex-auto p-6">
                         <p>
