@@ -9,8 +9,6 @@
 
     <title>{{ config('app.name', 'Offline') }}</title>
 
-
-
     <!-- Scripts -->
     <script>
         window.App = {!! json_encode(
@@ -21,7 +19,6 @@
     </script>
 
     <script src="/js/app.js" defer>
-
     </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.1/trix.css">
@@ -40,7 +37,6 @@
         "padding-bottom: 100px;"
         }
 
-
         .level {
             display: flex;
             align-items: center;
@@ -58,7 +54,13 @@
 
         .ais-highlight > em { background: yellow; font-style: normal; }
 
-
+        #logo {
+            position: fixed;
+            width: 40%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
 
     @yield('header')
@@ -66,8 +68,17 @@
 </head>
     <body class="bg-white">
         <div id="app">
-                @include('layouts/nav')
-                @yield('content')
+
+                @auth()
+                    @include('layouts/nav')
+                @endauth
+
+                        @yield('content')
+
+                @auth()
+                    @include('layouts/footer')
+                @endauth
+
             <flash message="{{ session('flash') }}"></flash>
         </div>
     </body>

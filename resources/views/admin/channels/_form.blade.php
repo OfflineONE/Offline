@@ -19,7 +19,9 @@
 </div>
 
 <div class="mt-4 form-group">
-    <button type="submit" class="btn btn-primary">{{ $buttonText ?? 'Add Channel' }}</button>
+    <button
+        type="submit"
+        class="btn btn-primary">{{ $buttonText ?? 'Add Channel' }}</button>
 </div>
 
 @if (count($errors))
