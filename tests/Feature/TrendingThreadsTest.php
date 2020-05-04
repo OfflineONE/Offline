@@ -23,6 +23,7 @@ class TrendingThreadsTest extends TestCase {
     /** @test */
     public function it_increments_a_threads_score_each_time_it_is_read()
     {
+        $this->signIn();
         $this->assertEmpty($this->trending->get());
         $thread = create('App\Thread');
         $this->call('GET', $thread->path());

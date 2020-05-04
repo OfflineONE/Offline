@@ -120,7 +120,7 @@
                             const d = dist(this.pos.x, this.pos.y, particle.pos.x, particle.pos.y);
 
 // change < to > for crazy effect
-                            
+
                             if(d < 120) {
                                 stroke('rgba(255,255,255,0.1)');
                                 line(this.pos.x, this.pos.y, particle.pos.x, particle.pos.y);

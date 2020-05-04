@@ -20,6 +20,7 @@ use WithFaker, RefreshDatabase;
     /** @test */
     public function a_user_can_browse_threads()
     {
+        $this->signIn();
         $this->get('/threads')
              ->assertsee($this->thread->title);
     }
@@ -27,6 +28,7 @@ use WithFaker, RefreshDatabase;
     /** @test */
     function a_user_can_read_a_single_thread()
     {
+        $this->signIn();
         $this->get($this->thread->path())
              ->assertSee($this->thread->title);
     }
@@ -35,7 +37,7 @@ use WithFaker, RefreshDatabase;
      function a_user_can_filter_threads_according_to_a_tag()
      {
          $this->withoutExceptionHandling();
-//         $this->signIn();
+         $this->signIn();
          $channel = create('App\Channel');
          $threadInChannel = create('App\Thread', ['channel_id' => $channel->id]);
          $threadNotInChannel = create('App\Thread');
@@ -58,6 +60,7 @@ use WithFaker, RefreshDatabase;
      /** @test */
      function a_user_can_sort_threads_by_popularity()
      {
+         $this->signIn();
          $threadWithTwoReplies = create('App\Thread');
          create('App\Reply', ['thread_id' => $threadWithTwoReplies->id], 2);
 
@@ -74,6 +77,7 @@ use WithFaker, RefreshDatabase;
      /** @test */
      function a_user_can_filter_threads_by_those_that_are_unanswered()
      {
+         $this->signIn();
          $thread = create('App\Thread');
          create('App\Reply', ['thread_id' => $thread->id]);
 
@@ -97,6 +101,7 @@ use WithFaker, RefreshDatabase;
      /** @test */
      function we_record_a_new_visit_each_time_the_thread_is_read()
      {
+         $this->signIn();
          $thread = create('App\Thread');
 
          $this->assertEquals(0, $thread->visits);
