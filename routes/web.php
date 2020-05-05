@@ -22,7 +22,6 @@
 //       dd($response->header('Vary'));
 //    }
 //});
-use App\Http\Controllers\HomeController;
 
 Auth::routes(['verify' => true]);
 
