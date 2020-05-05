@@ -25,6 +25,6 @@ class HomeController extends Controller
     {
         $channels = Channel::all();
 
-        return view('home.index', compact('channels'));
+        return view('home', compact('channels'));
     }
 }
