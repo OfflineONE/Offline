@@ -31,9 +31,8 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
-
 </head>
+
 <body class="bg-gray-700">
     <div class="mt-64 container mx-auto">
         <div class="flex flex-wrap justify-center">
@@ -91,11 +90,11 @@
                                         {{ __('Login') }}
                                     </button>
 
-                                    @if (Route::has('password.request'))
-                                        <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline font-normal blue bg-transparent" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    @endif
+{{--                                    @if (Route::has('password.request'))--}}
+{{--                                        <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline font-normal blue bg-transparent" href="{{ route('password.request') }}">--}}
+{{--                                            {{ __('Forgot Your Password?') }}--}}
+{{--                                        </a>--}}
+{{--                                    @endif--}}
                                 </div>
                             </div>
                         </form>
