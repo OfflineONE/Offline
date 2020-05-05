@@ -71,7 +71,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'email_verified_at' => now(),
-
+            'added_to_family_by' => auth()->id(),
         ]);
     }
 
