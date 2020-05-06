@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->string('avatar_path')->nullable();
-            $table->string('added_to_family_by')->nullable();
         });
     }
 
