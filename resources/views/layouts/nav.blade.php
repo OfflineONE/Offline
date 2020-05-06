@@ -1,6 +1,6 @@
 <header class="h-24 flex items-center justify-between bg-gray-300">
    <div class="level">
-       <a href="/">
+       <a href="/home">
            <svg class="h-12 w-24" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
                <g id="Layer_2">
                    <path class="st0" d="M862.9 159.5h30v761.7h-30zM980.5 159.5h30v761.7h-30z"/>
