@@ -22,13 +22,9 @@
 //       dd($response->header('Vary'));
 //    }
 //});
-use App\Http\Controllers\HomeController;
-
 Auth::routes(['verify' => true]);
 
-Route::get('/', 'StartController@index')->name('start');
-
-Route::get('/home', 'HomeController@index')->middleware('auth');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('threads/search', 'SearchController@show')->name('search');
 
