@@ -139,7 +139,7 @@
                     <div v-if="isOpen" class="absolute right-0 py-2 w-32 mt-2 bg-white rounded-lg shadow-2xl">
 
                         <a class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:no-underline hover:text-white"
-                           href="{{ route('profile.show', Auth::user()) }}">
+                           href="{{ route('profile.show', auth()->user()) }}">
                             My Profile
                         </a>
 
