@@ -42,6 +42,6 @@ class LoginController extends Controller
     {
         Auth::logout();
 
-        return redirect('/threads');
+        return redirect('/');
     }
 }
