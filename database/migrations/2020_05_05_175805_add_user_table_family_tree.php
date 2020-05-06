@@ -14,7 +14,7 @@ class AddUsertableFamilyTree extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('added_to_family_by');
+            $table->string('added_to_family_by')->nullable();
         });
     }
 
