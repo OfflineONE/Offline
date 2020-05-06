@@ -11,8 +11,6 @@
         "php": "^7.4",
         "ext-json": "*",
         "algolia/algoliasearch-client-php": "^2.2",
-        "barryvdh/laravel-debugbar": "dev-master",
-        "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
@@ -22,7 +20,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "predis/predis": "^1.1",
-        "stevebauman/purify": "^3.0"
+        "stevebauman/purify": "^3.0",
+        "barryvdh/laravel-debugbar": "dev-master"
     },
     "require-dev": {
         "laravel/telescope": "^3.1",
