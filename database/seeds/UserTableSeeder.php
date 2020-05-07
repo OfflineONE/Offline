@@ -8,25 +8,25 @@
      {
          factory('App\User')->create([
              'id' => '1',
-             'name' => 'admin',
-             'email' => 'admin@admin.com',
-             'password' => bcrypt('testtest'),
+             'name' => 'nobody',
+             'email' => env('ADMIN_1'),
+             'password' => bcrypt(env('PW_1')),
          ]);
 
          factory('App\User')->create([
              'id' => '2',
              'name' => 'reniar',
-             'email' => 'reniar@reniar.com',
-             'password' => bcrypt('testtest'),
+             'email' => env('ADMIN_2'),
+             'password' => bcrypt(env('PW_1')),
          ]);
 
          factory('App\User')->create([
              'id' => '3',
              'name' => 'nitai',
-             'email' => 'nitai@nitai.com',
-             'password' => bcrypt('testtest'),
+             'email' => env('ADMIN_3'),
+             'password' => bcrypt(env('PW_1')),
          ]);
 
-         factory('App\User', 50)->create();
+//         factory('App\User', 50)->create();
      }
  }
