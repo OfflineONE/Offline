@@ -141,7 +141,7 @@
                         // Velocity
                         this.vel = createVector(random(-2, 2), random(-2, 2));
                         // Size
-                        this.size = 5;
+                        this.size = 10;
                     }
 
                     // Update movement by adding velocity
