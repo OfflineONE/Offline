@@ -63,7 +63,7 @@
                <ais-results v-if="ResultsAreOpen"
                             class="absolute bg-white rounded-lg py-1 shadow-xl">
                    <template scope="{ result }">
-                       <dt class="block hover:bg-indigo-500 ">
+                       <dt class="block hover:bg-indigo-500">
                            <a :href="result.path" class="block px-2 py-1 focus:bg-indigo-500 focus:text-white focus:outline-none hover:text-white hover:no-underline">
                                <ais-highlight :result="result"
                                               attribute-name="title"></ais-highlight>

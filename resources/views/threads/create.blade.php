@@ -49,13 +49,14 @@
 {{--                                         >{{ old('body') }}</textarea>--}}
                             </div>
 
-                        <div class="mb-4">
+                            <add-location></add-location>
+
+                            <div class="mb-4">
                             <button type="submit"
                                     class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline btn-default bg-blue">
                                 Publish</button>
                         </div>
 
-                            <add-location></add-location>
 
                             @if(count($errors))
                                 <ul class="px-3 py-3 mb-4 border rounded text-red-darker border-red-dark bg-red-300">
