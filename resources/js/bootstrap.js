@@ -1,6 +1,7 @@
 window._ = require('lodash');
 require('at.js');
 require('jquery.caret');
+import 'leaflet/dist/leaflet.css';
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
