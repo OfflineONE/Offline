@@ -8,7 +8,7 @@
                aria-expanded="false"
                role="button"
             >
-                Categories
+                Channels
                 <span class="caret"></span>
             </a>
 
@@ -17,7 +17,7 @@
                     <input type="text"
                            class="form-control"
                            v-model="filter"
-                           placeholder="Filter Offers..."/>
+                           placeholder="Filter Channels..."/>
                 </div>
 
                 <ul class="list-group channel-list">

@@ -37,7 +37,7 @@
 
                        <div @click="ResultsAreOpen = !ResultsAreOpen" class="relative z-10 form-control">
                            <ais-search-box class="">
-                               <ais-input :autofocus="true" placeholder="Find Offers..."
+                               <ais-input :autofocus="true" placeholder="Find a thread ..."
                                           class="focus:outline-none "></ais-input>
                            </ais-search-box>
                        </div>
@@ -55,18 +55,13 @@
 
                </div>
 
-               <button v-if="ResultsAreOpen"
-                       @click="ResultsAreOpen = false"
-                       tabindex="-1"
-                       class="fixed opacity-50 top-0 right-0 left-0 bottom-0 h-full w-full bg-black cursor-default"></button>
+               <button v-if="ResultsAreOpen" @click="ResultsAreOpen = false" tabindex="-1" class="fixed opacity-50 top-0 right-0 left-0 bottom-0 h-full w-full bg-black cursor-default"></button>
 
-               <ais-results v-if="ResultsAreOpen"
-                            class="absolute bg-white rounded-lg py-1 shadow-xl">
+               <ais-results v-if="ResultsAreOpen" class="absolute bg-white rounded-lg py-1 shadow-xl">
                    <template scope="{ result }">
                        <dt class="block hover:bg-indigo-500 ">
                            <a :href="result.path" class="block px-2 py-1 focus:bg-indigo-500 focus:text-white focus:outline-none hover:text-white hover:no-underline">
-                               <ais-highlight :result="result"
-                                              attribute-name="title"></ais-highlight>
+                               <ais-highlight :result="result" attribute-name="title"></ais-highlight>
                            </a>
                        </dt>
                    </template>
@@ -92,19 +87,19 @@
                    aria-haspopup="true"
                    aria-expanded="false"
                 >
-                    Offers
+                    Browse
                     <span class="caret"></span>
                 </a>
 
                 <ul class="dropdown-menu">
-                    <li><a href="/threads">All Offers</a></li>
+                    <li><a href="/threads">All Topics</a></li>
 
                     @if (auth()->check())
-                        <li><a href="/threads?by={{ auth()->user()->name }}">My Offers</a></li>
+                        <li><a href="/threads?by={{ auth()->user()->name }}">My Threads</a></li>
                     @endif
 
-                    <li><a href="/threads?popular=1">Popular Offers</a></li>
-                    <li><a href="/threads?unanswered=1">Unanswered Offers</a></li>
+                    <li><a href="/threads?popular=1">Popular Threads</a></li>
+                    <li><a href="/threads?unanswered=1">Unanswered Threads</a></li>
                 </ul>
             </div>
         </div>
@@ -113,7 +108,7 @@
             <a href="/threads/create"
                class="ml-4 bg-blue-500 border-white hover:no-underline hover:bg-blue-400 rounded-full text-white px-2 py-0.8 text-lg"
             >
-                Create Offer
+                Create
             </a>
         </div>
 
