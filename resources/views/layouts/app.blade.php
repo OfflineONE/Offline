@@ -18,20 +18,23 @@
             ]) !!}
     </script>
 
-    <script src="/js/app.js" defer></script>
+    <script src="/js/app.js" defer>
+    </script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.1/trix.css">
     <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="shortcut icon" href="#" />
 
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon"/>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/geosearch.css" rel="stylesheet">
 
     <style>
-
         body {
-            "padding-bottom: 100px;"
+        "padding-bottom: 100px;"
         }
 
         .level {

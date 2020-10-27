@@ -94,15 +94,3 @@ window.events = new Vue();
 window.flash = function (message, level = 'success') {
    window.events.$emit('flash', {message, level});
 };
-
-//needed for correct displaying of markers
-
-import { Icon } from 'leaflet';
-
-delete Icon.Default.prototype._getIconUrl;
-Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-});
-
