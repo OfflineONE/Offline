@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace tests\Unit;
 
 use Carbon\Carbon;
 use Tests\TestCase;

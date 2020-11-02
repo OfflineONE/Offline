@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace tests\Unit;
 
 use App\Inspections\Spam;
 use Tests\TestCase;
