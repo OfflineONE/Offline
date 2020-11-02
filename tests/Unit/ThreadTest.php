@@ -1,8 +1,9 @@
 <?php
 
-namespace Tests\Unit;
+namespace tests\Unit;
 
-use App\Notifications\ThreadWasUpdated;
+use
+    App\Notifications\ThreadWasUpdated;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
